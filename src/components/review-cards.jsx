@@ -2,7 +2,7 @@ import React from 'react';
 
 function ReviewCards(props) {
   return (
-    <h1>Review Cards</h1>
+    <h1 className='text-center'>Review Cards</h1>
   );
 }
 
