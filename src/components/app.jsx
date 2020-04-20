@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'view-cards'
+      view: 'view-cards',
+      cards: []
     };
     this.setView = this.setView.bind(this);
     this.getView = this.getView.bind(this);
@@ -31,7 +32,13 @@ class App extends React.Component {
     }
   }
 
+  addCard() {
+    const card = JSON.stringify(this.state.cards);
+    localStorage.setItem('flash-cards', card);
+  }
+
   render() {
+    console.log(this.state.cards);
     return (
       <div>
         <Nav setView={this.setView} active={this.state.view}/>
