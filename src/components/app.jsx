@@ -32,9 +32,15 @@ class App extends React.Component {
     }
   }
 
-  addCard() {
+  saveCards() {
     const card = JSON.stringify(this.state.cards);
     localStorage.setItem('flash-cards', card);
+  }
+
+  addCard(card) {
+    const tempCards = this.state.cards.slice();
+    tempCards.push(card);
+    this.setState({ cards: tempCards }, () => this.saveCards);
   }
 
   render() {
