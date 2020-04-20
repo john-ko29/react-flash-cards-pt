@@ -9,7 +9,6 @@ function Nav(props) {
   } else if (props.active === 'create-card') {
     create = 'nav-item badge-primary';
   }
-  console.log(props);
   return (
     <div className='navbar navbar-expand justify-content-end text-primary'>
       <ul className='navbar-nav'>
