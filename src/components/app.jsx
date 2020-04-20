@@ -8,11 +8,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'view-cards',
+      view: 'create-card',
       cards: []
     };
     this.setView = this.setView.bind(this);
     this.getView = this.getView.bind(this);
+    this.saveCards = this.saveCards.bind(this);
+    this.addCard = this.addCard.bind(this);
   }
 
   setView(location) {
@@ -22,7 +24,7 @@ class App extends React.Component {
   getView() {
     switch (this.state.view) {
       case 'create-card':
-        return <CreateCard />;
+        return <CreateCard addCard={this.addCard}/>;
       case 'review-cards':
         return <ReviewCards />;
       case 'view-cards':
