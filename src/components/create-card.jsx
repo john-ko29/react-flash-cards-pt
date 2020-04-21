@@ -8,21 +8,23 @@ class CreateCard extends React.Component {
       answer: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.reset = this.reset.bind(this);
   }
 
   handleChange(event) {
-    console.log(event.target.name);
     if (event.target.name === 'question') {
-      this.setState({ name: event.target.value });
+      this.setState({ question: event.target.value });
     }
     if (event.target.name === 'answer') {
-      this.setState({ course: event.target.value });
+      this.setState({ answer: event.target.value });
     }
   }
 
-  handleSubmit() {
-
+  handleSubmit(event) {
+    event.preventDefault();
+    this.reset();
+    this.props.addCard(this.state);
   }
 
   reset() {
@@ -34,7 +36,7 @@ class CreateCard extends React.Component {
       <div>
         <h1 className='text-center'>Create New Card</h1>
         <div className="row d-flex justify-content-center">
-          <form className='d-flex flex-column col-8' onReset={this.reset} >
+          <form className='d-flex flex-column col-8' onReset={this.reset} onSubmit={this.handleSubmit} >
             <label htmlFor="question">Question:</label>
             <textarea name="question" id="question" cols="30" rows="5" onChange={this.handleChange} placeholder="Put a question">
             </textarea>
