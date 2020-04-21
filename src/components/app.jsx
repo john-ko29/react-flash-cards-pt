@@ -42,7 +42,7 @@ class App extends React.Component {
   addCard(card) {
     const tempCards = this.state.cards.slice();
     tempCards.push(card);
-    this.setState({ cards: tempCards }, () => this.saveCards);
+    this.setState({ cards: tempCards }, () => this.saveCards());
   }
 
   render() {
