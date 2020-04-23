@@ -1,7 +1,6 @@
 import React from 'react';
 
 function ViewCards(props) {
-  console.log(props);
   const flashCards = props.cards.map((card, index) => {
     return (
       <div key={index}>
