@@ -32,7 +32,7 @@ class App extends React.Component {
       case 'create-card':
         return <CreateCard addCard={this.addCard} setView={this.setView}/>;
       case 'review-cards':
-        return <ReviewCards setActiveCard={this.setActiveCard}/>;
+        return <ReviewCards setActiveCard={this.setActiveCard} cards={this.state.cards} activeCard={this.state.activeCard}/>;
       case 'view-cards':
         return <ViewCards cards={this.state.cards}/>;
       default:
